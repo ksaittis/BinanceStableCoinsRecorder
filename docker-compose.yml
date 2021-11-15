@@ -3,8 +3,15 @@ version: '3'
 services:
   balanceNotifier:
     image: "saittisk/balance_notifier:v0.0.1"
+    volumes:
+      - type: volume
+        source: mydata
+        target: /db/data
     environment:
       - API_KEY=${API_KEY}
       - API_SECRET=${API_SECRET}
       - BOT_TOKEN=${BOT_TOKEN}
       - CHAT_ID=${CHAT_ID}
+
+volumes:
+  mydata:

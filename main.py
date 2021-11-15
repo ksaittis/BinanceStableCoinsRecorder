@@ -20,7 +20,7 @@ def main():
 
     msg = message_manager.build_message(current_balance, change)
     logging.info(msg.text())
-    # message_manager.send_message(msg)
+    message_manager.send_message(msg)
 
 
 if __name__ == '__main__':

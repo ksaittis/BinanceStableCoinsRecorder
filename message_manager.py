@@ -5,6 +5,8 @@ from typing import List
 
 import requests
 
+from storage_manager import TimeHelper
+
 
 class Emoji(Enum):
     GREEN_SQUARE = '\U0001F7E9'
@@ -29,13 +31,14 @@ class MessageBuilder:
 
     @staticmethod
     def build_message(current_balance: float, diff: float) -> Message:
+        timestamp = TimeHelper.get_current_timestamp()
         prefix = Emoji.RED_SQUARE.value
         if diff >= 100:
             prefix = Emoji.FIRE.value
         elif diff >= 0:
             prefix = Emoji.GREEN_SQUARE.value
 
-        return Message(f"{prefix} Balance: ${current_balance:.2f}, Change: ${diff:.2f}")
+        return Message(f"{prefix} Balance: ${current_balance:.2f}, Change: ${diff:.2f} @ {timestamp}")
 
 
 class TelegramMessenger:
