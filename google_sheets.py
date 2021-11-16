@@ -69,6 +69,9 @@ class GoogleSheetsManager:
     def get_data(self, cell_range='A1:B100'):
         return self._client.get_values_in_range(cell_range=cell_range)
 
+    def store_new_balance(self, balance: float):
+        self.append_data([[TimeHelper.get_current_timestamp(), str(balance)]])
+
 
 def main():
     g = GoogleSheetsManager()
