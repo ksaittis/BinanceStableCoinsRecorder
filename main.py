@@ -24,6 +24,8 @@ def main():
     logging.info(msg.text())
     message_manager.send_message(msg)
 
+    # Store record of stablecoin balance into google sheets,
+    # requires quite a bit of setup and config for the following to work
     if os.getenv("RECORD_DATA_IN_GOOGLE_SHEETS", 'False').lower() in ['true', 'True', '1']:
         sheets_manager = GoogleSheetsManager()
         sheets_manager.store_new_balance(balance=current_balance)

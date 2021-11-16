@@ -7,6 +7,9 @@ services:
       - type: volume
         source: mydata
         target: /db/data
+      - type: bind
+        source: /creds/google_creds.json
+        target: /creds/google_creds.json
     environment:
       - API_KEY=${API_KEY}
       - API_SECRET=${API_SECRET}

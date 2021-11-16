@@ -13,7 +13,7 @@ STABLECOINS_SPREADSHEET = os.getenv('STABLECOINS_SPREADSHEET', 'Stablecoins')
 
 class GoogleSheetsClient:
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-    SERVICE_ACCOUNT_FILE = './service.json'
+    SERVICE_ACCOUNT_FILE = os.getenv('SERVICE_ACCOUNT_FILE_PATH', './service.json')
     API = 'sheets'
     API_VERSION = 'v4'
 
